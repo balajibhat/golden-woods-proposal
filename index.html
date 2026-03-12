@@ -1522,49 +1522,6 @@ input[type="range"]::-moz-range-thumb {
   </div>
 </section>
 
-<!-- ===== ROI CALCULATOR ===== -->
-<section class="calculator-section">
-  <div class="container">
-    <div class="section-label">Interactive</div>
-    <h2 class="section-title">See what you save.</h2>
-    <div class="calculator-box">
-      <div class="calc-row">
-        <div class="calc-input-group">
-          <label>Average Property Value</label>
-          <div class="slider-value" id="prop-value-display">AED 2,000,000</div>
-          <input type="range" id="prop-value" min="1000000" max="4500000" step="250000" value="2000000">
-        </div>
-        <div class="calc-input-group">
-          <label>Direct Sales Per Year</label>
-          <div class="slider-value" id="sales-display">4</div>
-          <input type="range" id="sales-count" min="1" max="20" step="1" value="4">
-        </div>
-      </div>
-      <div class="calc-results">
-        <div class="calc-result-item">
-          <div class="result-label">Agent Commissions</div>
-          <div class="result-value negative" id="result-commission">AED 640,000</div>
-          <div class="result-sub">paid to agents per year</div>
-        </div>
-        <div class="calc-result-item">
-          <div class="result-label">CDE Program Cost</div>
-          <div class="result-value positive" id="result-cde">AED 144,160</div>
-          <div class="result-sub">your annual investment</div>
-        </div>
-        <div class="calc-result-item">
-          <div class="result-label">Return on Investment</div>
-          <div class="result-value roi" id="result-roi">4.4x</div>
-          <div class="result-sub">for every dirham spent</div>
-        </div>
-      </div>
-      <div class="calc-verdict">
-        <p>By closing <span id="verdict-sales">4</span> sales direct, you save</p>
-        <div class="verdict-big" id="verdict-savings">AED 495,840</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== THE ENGINE (JOURNEY MAP) ===== -->
 <section class="funnel-section">
   <div class="container">
@@ -1973,6 +1930,49 @@ input[type="range"]::-moz-range-thumb {
         </tbody>
       </table>
       <p class="phase-note">Phase 2 fully loaded: AED 34,396 - AED 38,066/month (inclusive of Phase 1 retainer).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROI CALCULATOR ===== -->
+<section class="calculator-section">
+  <div class="container">
+    <div class="section-label">Interactive</div>
+    <h2 class="section-title">See what you save.</h2>
+    <div class="calculator-box">
+      <div class="calc-row">
+        <div class="calc-input-group">
+          <label>Average Property Value</label>
+          <div class="slider-value" id="prop-value-display">AED 2,000,000</div>
+          <input type="range" id="prop-value" min="1000000" max="4500000" step="250000" value="2000000">
+        </div>
+        <div class="calc-input-group">
+          <label>Direct Sales Per Year</label>
+          <div class="slider-value" id="sales-display">4</div>
+          <input type="range" id="sales-count" min="1" max="20" step="1" value="4">
+        </div>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result-item">
+          <div class="result-label">Agent Commissions</div>
+          <div class="result-value negative" id="result-commission">AED 640,000</div>
+          <div class="result-sub">paid to agents per year</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="result-label">CDE Program Cost</div>
+          <div class="result-value positive" id="result-cde">AED 144,160</div>
+          <div class="result-sub">your annual investment</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="result-label">Return on Investment</div>
+          <div class="result-value roi" id="result-roi">4.4x</div>
+          <div class="result-sub">for every dirham spent</div>
+        </div>
+      </div>
+      <div class="calc-verdict">
+        <p>By closing <span id="verdict-sales">4</span> sales direct, you save</p>
+        <div class="verdict-big" id="verdict-savings">AED 495,840</div>
+      </div>
     </div>
   </div>
 </section>
