@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Partnership Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #2756c7;
+  --blue-deep: #1a3d8f;
+  --black: #1e1e1e;
+  --white: #ffffff;
+  --gray: #e5e5e5;
+  --gray-dark: #8a8a8a;
+  --evolve: #b0edfc;
+  --expansion: #f1b08c;
+  --ascend: #94d7c2;
+  --lavender: #b3b3f8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+/* ===== WEBGL GRADIENT CANVAS ===== */
+#gradient-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.03);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, var(--evolve), var(--lavender), var(--expansion));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--gray-dark);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.2s forwards;
+}
+
+.scroll-indicator span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--blue), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ===== CDE NAVBAR ===== */
+.cde-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30,30,30,0.6);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.cde-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cde-logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue), var(--lavender));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.cde-logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.cde-nav-tag {
+  font-size: 11px;
+  color: var(--gray-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,0.1);
+}
+
+.gw-nav-logo {
+  height: 28px;
+  width: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  filter: brightness(1.2);
+}
+
+.gw-nav-logo:hover {
+  opacity: 1;
+}
+
+/* ===== CDE ACCENT LINE ===== */
+.cde-accent-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 101;
+  background: linear-gradient(90deg, var(--evolve), var(--lavender), var(--blue), var(--expansion), var(--ascend));
+  background-size: 200% 100%;
+  animation: accentShift 8s ease-in-out infinite;
+}
+
+@keyframes accentShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== THE PROBLEM ===== */
+.problem-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(39,86,199,0.03) 50%, transparent 100%);
+  min-height: auto;
+}
+
+.problem-section .container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.section-label {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  line-height: 1.15;
+}
+
+/* Two-part problem layout */
+.problem-parts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.problem-part {
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-part::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.problem-part-1::before {
+  background: linear-gradient(90deg, var(--expansion), rgba(241,176,140,0.2));
+}
+
+.problem-part-2::before {
+  background: linear-gradient(90deg, var(--lavender), rgba(179,179,248,0.2));
+}
+
+.problem-part:hover {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.problem-part-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.problem-part-1 .problem-part-number { color: var(--expansion); }
+.problem-part-2 .problem-part-number { color: var(--lavender); }
+
+.problem-part h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.problem-part p {
+  font-size: 15px;
+  color: var(--gray-dark);
+  line-height: 1.7;
+}
+
+.problem-part .problem-stat {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.problem-stat .stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.problem-part-1 .stat-num { color: var(--expansion); }
+.problem-part-2 .stat-num { color: var(--lavender); }
+
+.problem-stat .stat-desc {
+  font-size: 14px;
+  color: var(--gray-dark);
+  line-height: 1.4;
+}
+
+.problem-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.problem-connector-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--gray-dark);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.problem-connector-line::before,
+.problem-connector-line::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.commission-display {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.commission-display .big-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 800;
+  color: var(--expansion);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.commission-display .big-label {
+  font-size: 18px;
+  color: var(--gray-dark);
+}
+
+.commission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.commission-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.commission-card:hover {
+  border-color: rgba(241,176,140,0.3);
+  background: rgba(241,176,140,0.03);
+}
+
+.commission-card .property-value {
+  font-size: 14px;
+  color: var(--gray-dark);
+  margin-bottom: 8px;
+}
+
+.commission-card .commission-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--expansion);
+}
+
+.commission-card .commission-note {
+  font-size: 12px;
+  color: rgba(241,176,140,0.6);
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .problem-parts { grid-template-columns: 1fr; }
+  .cde-nav { padding: 16px 20px; }
+  .cde-logo-text { display: none; }
+  .cde-nav-tag { display: none; }
+}
+
+/* ===== CONTENT COMPARISON ===== */
+.comparison-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(241,176,140,0.03) 50%, transparent 100%);
+  min-height: auto;
+  padding: 120px 40px;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.comparison-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comparison-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.comparison-col-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.comparison-col-header .follower-count {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.col-yours .follower-count {
+  color: var(--expansion);
+  background: rgba(241,176,140,0.1);
+  border: 1px solid rgba(241,176,140,0.2);
+}
+
+.col-competitor .follower-count {
+  color: var(--ascend);
+  background: rgba(148,215,194,0.1);
+  border: 1px solid rgba(148,215,194,0.2);
+}
+
+.comparison-card {
+  border-radius: 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.comparison-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comparison-card:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.comparison-embed {
+  width: 100%;
+  min-height: 400px;
+  border: none;
+  background: #111;
+}
+
+.comparison-card-label {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-type-tag {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.tag-image {
+  color: var(--gray-dark);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.tag-video {
+  color: var(--ascend);
+  background: rgba(148,215,194,0.08);
+  border: 1px solid rgba(148,215,194,0.15);
+}
+
+.tag-carousel {
+  color: var(--lavender);
+  background: rgba(179,179,248,0.08);
+  border: 1px solid rgba(179,179,248,0.15);
+}
+
+.comparison-card-label span {
+  font-size: 13px;
+  color: var(--gray-dark);
+}
+
+.comparison-verdict {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.comparison-stat {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.comparison-stat.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comparison-stat .comp-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.comparison-stat .comp-label {
+  font-size: 13px;
+  color: var(--gray-dark);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .comparison-grid { grid-template-columns: 1fr; gap: 32px; }
+  .comparison-verdict { grid-template-columns: 1fr; }
+  .nav-right .cde-nav-tag { display: none; }
+}
+
+/* ===== ROI CALCULATOR ===== */
+.calculator-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(148,215,194,0.03) 50%, transparent 100%);
+}
+
+.calculator-box {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 48px;
+  margin-top: 32px;
+  backdrop-filter: blur(20px);
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.calc-input-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--gray-dark);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.calc-input-group .slider-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blue);
+  cursor: pointer;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 20px rgba(39,86,199,0.4);
+}
+
+.calc-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.calc-result-item {
+  text-align: center;
+}
+
+.calc-result-item .result-label {
+  font-size: 12px;
+  color: var(--gray-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.calc-result-item .result-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.result-value.negative { color: var(--expansion); }
+.result-value.positive { color: var(--ascend); }
+.result-value.roi { color: var(--lavender); }
+
+.calc-result-item .result-sub {
+  font-size: 13px;
+  color: var(--gray-dark);
+  margin-top: 4px;
+}
+
+.calc-verdict {
+  text-align: center;
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(148,215,194,0.05);
+  border: 1px solid rgba(148,215,194,0.15);
+}
+
+.calc-verdict p {
+  font-size: 18px;
+  color: var(--ascend);
+  font-weight: 500;
+}
+
+.calc-verdict .verdict-big {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ===== JOURNEY MAP (THE ENGINE) ===== */
+.funnel-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(179,179,248,0.03) 50%, transparent 100%);
+}
+
+.journey-map {
+  margin-top: 48px;
+  position: relative;
+}
+
+/* Flow chart connector line */
+.journey-map::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--blue), var(--lavender), var(--ascend), var(--evolve), var(--expansion), var(--white));
+  opacity: 0.3;
+}
+
+.journey-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-node.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Node icon/number */
+.journey-node-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.journey-node-icon .num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.step-search .journey-node-icon { background: rgba(39,86,199,0.2); border: 2px solid var(--blue); }
+.step-search .journey-node-icon .num { color: var(--evolve); }
+.step-land .journey-node-icon { background: rgba(179,179,248,0.15); border: 2px solid var(--lavender); }
+.step-land .journey-node-icon .num { color: var(--lavender); }
+.step-capture .journey-node-icon { background: rgba(148,215,194,0.15); border: 2px solid var(--ascend); }
+.step-capture .journey-node-icon .num { color: var(--ascend); }
+.step-crm .journey-node-icon { background: rgba(176,237,252,0.1); border: 2px solid var(--evolve); }
+.step-crm .journey-node-icon .num { color: var(--evolve); }
+.step-nurture .journey-node-icon { background: rgba(241,176,140,0.12); border: 2px solid var(--expansion); }
+.step-nurture .journey-node-icon .num { color: var(--expansion); }
+.step-close .journey-node-icon { background: rgba(255,255,255,0.08); border: 2px solid var(--white); }
+.step-close .journey-node-icon .num { color: var(--white); }
+
+/* Arrow between nodes */
+.journey-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 24px;
+  height: 24px;
+  position: relative;
+}
+
+.journey-arrow::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.06);
+}
+
+.journey-arrow svg {
+  margin-left: 4px;
+  opacity: 0.2;
+}
+
+/* Card content */
+.journey-card {
+  flex: 1;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.journey-card-header {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.journey-card-header:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.journey-card-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.journey-card-header h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.journey-card-header .journey-oneliner {
+  font-size: 14px;
+  color: var(--gray-dark);
+}
+
+.journey-card-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.journey-card-toggle svg {
+  transition: transform 0.3s;
+  color: var(--gray-dark);
+}
+
+.journey-card.expanded .journey-card-toggle svg {
+  transform: rotate(180deg);
+}
+
+.journey-card.expanded {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+/* Expandable detail panel */
+.journey-card-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-card.expanded .journey-card-detail {
+  max-height: 400px;
+}
+
+.journey-detail-inner {
+  padding: 0 24px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.journey-detail-block h5 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.journey-detail-block.purpose h5 { color: var(--blue); }
+.journey-detail-block.outcomes h5 { color: var(--ascend); }
+
+.journey-detail-block p,
+.journey-detail-block li {
+  font-size: 13px;
+  color: var(--gray-dark);
+  line-height: 1.7;
+}
+
+.journey-detail-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.journey-detail-block ul li {
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.journey-detail-block.outcomes ul li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: var(--ascend);
+  font-weight: 700;
+}
+
+.journey-detail-block.purpose ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+/* Flow direction indicator */
+.journey-flow-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 8px 16px;
+  background: rgba(39,86,199,0.08);
+  border-radius: 100px;
+  width: fit-content;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--evolve);
+}
+
+.journey-flow-label svg {
+  animation: bounceDown 1.5s infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+@media (max-width: 768px) {
+  .journey-detail-inner { grid-template-columns: 1fr; }
+  .journey-map::before { left: 28px; }
+}
+
+/* ===== PHASED PLAN ===== */
+.plan-section {
+  min-height: auto;
+  padding: 120px 40px;
+}
+
+.phase-block {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phase-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.phase-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.phase-1 .phase-tag { background: rgba(39,86,199,0.15); color: var(--evolve); }
+.phase-2 .phase-tag { background: rgba(148,215,194,0.15); color: var(--ascend); }
+
+.phase-header h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.phase-desc {
+  color: var(--gray-dark);
+  margin-bottom: 32px;
+  font-size: 15px;
+  max-width: 600px;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-weight: 500;
+}
+
+.pricing-table th:last-child,
+.pricing-table td:last-child {
+  text-align: right;
+}
+
+.pricing-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 15px;
+}
+
+.pricing-table td:first-child {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.pricing-table td:last-child {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pricing-table .what-col {
+  color: var(--gray-dark);
+  font-size: 13px;
+}
+
+.pricing-table tr.total-row td {
+  border-top: 2px solid rgba(255,255,255,0.1);
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 17px;
+  padding-top: 20px;
+}
+
+.pricing-table tr.total-row td:last-child {
+  font-size: 22px;
+}
+
+.phase-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--gray-dark);
+  font-style: italic;
+}
+
+/* ===== BREAK EVEN ===== */
+.breakeven-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(39,86,199,0.05) 50%, transparent 100%);
+}
+
+.breakeven-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.breakeven-bar-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 120px;
+  align-items: center;
+  gap: 20px;
+}
+
+.bar-label {
+  font-size: 14px;
+  color: var(--gray-dark);
+  text-align: right;
+}
+
+.bar-track {
+  height: 40px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 0;
+}
+
+.bar-fill.animated { /* width set by JS */ }
+
+.bar-fill.commission {
+  background: linear-gradient(90deg, rgba(241,176,140,0.3), rgba(241,176,140,0.15));
+  color: var(--expansion);
+}
+
+.bar-fill.cde-cost {
+  background: linear-gradient(90deg, rgba(39,86,199,0.4), rgba(39,86,199,0.2));
+  color: var(--evolve);
+}
+
+.bar-savings {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ascend);
+}
+
+.breakeven-summary {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.be-stat {
+  text-align: center;
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.be-stat .be-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.be-stat .be-label {
+  font-size: 14px;
+  color: var(--gray-dark);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  text-align: center;
+  min-height: 60vh;
+}
+
+.cta-section h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  color: var(--gray-dark);
+  font-size: 18px;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: #3366dd;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(39,86,199,0.4);
+}
+
+.footer-note {
+  margin-top: 80px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 1px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  section { padding: 60px 24px; }
+  .calculator-box { padding: 28px; }
+  .calc-row { grid-template-columns: 1fr; gap: 24px; }
+  .calc-results { grid-template-columns: 1fr; gap: 16px; }
+  .breakeven-bar-row { grid-template-columns: 1fr; gap: 8px; }
+  .bar-label { text-align: left; }
+  .breakeven-summary { grid-template-columns: 1fr; }
+  .commission-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-table { font-size: 13px; }
+  .pricing-table td, .pricing-table th { padding: 12px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CDE Branded Nav -->
+<div class="cde-accent-line"></div>
+<nav class="cde-nav">
+  <div class="cde-logo">
+    <div class="cde-logo-mark">CDE</div>
+    <div class="cde-logo-text">Core Digital Expansion</div>
+  </div>
+  <div class="nav-right">
+    <div class="cde-nav-tag">Growth Partnership Proposal</div>
+    <div class="nav-divider"></div>
+    <img src="https://goldenwoodsuae.com/wp-content/uploads/2025/01/Golden-Woods-Logo-01.png" alt="Golden Woods Development" class="gw-nav-logo">
+  </div>
+</nav>
+
+<!-- WEBGL Gradient Background -->
+<canvas id="gradient-canvas"></canvas>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-badge">Prepared for Golden Woods</div>
+  <h1>You built something worth buying.<br><span class="gradient-text">Let buyers find it.</span></h1>
+  <p class="hero-sub">Right now, agents bring your buyers and take 5-8% of every sale. This is a plan to change that.</p>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== THE PROBLEM ===== -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Your brand is a liability,<br>not an asset.</h2>
+
+    <div class="problem-parts">
+      <div class="problem-part problem-part-1">
+        <div class="problem-part-number">Part One: Buyers can't find you</div>
+        <h3>Golden Woods doesn't show up where buyers look.</h3>
+        <p>When someone searches for villas or townhouses in your area, Golden Woods isn't in the results. There's no landing page built to convert, no ad presence, no content that positions the project. Buyers who would go direct never get the chance because they don't know you exist online.</p>
+        <div class="problem-stat">
+          <div class="stat-num">?</div>
+          <div class="stat-desc">Buyers searching for property in your area<br>who never see Golden Woods</div>
+        </div>
+      </div>
+      <div class="problem-part problem-part-2">
+        <div class="problem-part-number">Part Two: Agents fill the gap</div>
+        <h3>So every sale costs you 5-8% in commission.</h3>
+        <p>When your brand can't generate its own demand, agents become the only channel. You're usually at 5-7%, currently paying 8%. That's not a sales cost, it's a brand problem showing up on your balance sheet. Every unit sold through an agent is margin you didn't have to give up.</p>
+        <div class="problem-stat">
+          <div class="stat-num">8%</div>
+          <div class="stat-desc">Current commission rate<br>on a dh2M unit, that's dh160,000 per sale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTENT COMPARISON ===== -->
+<section class="comparison-section">
+  <div class="container">
+    <div class="section-label">The Evidence</div>
+    <h2 class="section-title">This is what your competition<br>looks like online.</h2>
+    <p style="color: var(--gray-dark); max-width: 600px; line-height: 1.6; margin-bottom: 0;">Same market. Same buyers. Different presence. Imtiaz Developments has 44x your following and they're using video, carousels, and storytelling. Golden Woods is posting static images with no strategy.</p>
+
+    <div class="comparison-grid">
+
+      <!-- Golden Woods Column -->
+      <div class="comparison-col col-yours">
+        <div class="comparison-col-header">
+          <h3>Golden Woods</h3>
+          <span class="follower-count">3,070 followers</span>
+        </div>
+        <div class="comparison-card">
+          <iframe class="comparison-embed" src="https://www.instagram.com/p/DFnofPxI-EP/embed" loading="lazy" allowtransparency="true" scrolling="no"></iframe>
+          <div class="comparison-card-label">
+            <span class="content-type-tag tag-image">Static Image</span>
+            <span>Typical post format</span>
+          </div>
+        </div>
+        <div class="comparison-card">
+          <iframe class="comparison-embed" src="https://www.instagram.com/p/DFQGxlVo7IS/embed" loading="lazy" allowtransparency="true" scrolling="no"></iframe>
+          <div class="comparison-card-label">
+            <span class="content-type-tag tag-image">Static Image</span>
+            <span>330 posts, all single images</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imtiaz Column -->
+      <div class="comparison-col col-competitor">
+        <div class="comparison-col-header">
+          <h3>Imtiaz Developments</h3>
+          <span class="follower-count">136K followers</span>
+        </div>
+        <div class="comparison-card">
+          <iframe class="comparison-embed" src="https://www.instagram.com/reel/DHLHf_fIBYa/embed" loading="lazy" allowtransparency="true" scrolling="no"></iframe>
+          <div class="comparison-card-label">
+            <span class="content-type-tag tag-video">Video Reel</span>
+            <span>CEO-led content, storytelling</span>
+          </div>
+        </div>
+        <div class="comparison-card">
+          <iframe class="comparison-embed" src="https://www.instagram.com/p/DHHBHqBIjAK/embed" loading="lazy" allowtransparency="true" scrolling="no"></iframe>
+          <div class="comparison-card-label">
+            <span class="content-type-tag tag-carousel">Carousel</span>
+            <span>Design-forward, educational</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comparison-verdict">
+      <div class="comparison-stat">
+        <div class="comp-num" style="color: var(--expansion);">44x</div>
+        <div class="comp-label">Follower gap between<br>Golden Woods and Imtiaz</div>
+      </div>
+      <div class="comparison-stat">
+        <div class="comp-num" style="color: var(--gray-dark);">0</div>
+        <div class="comp-label">Videos or carousels<br>on Golden Woods' feed</div>
+      </div>
+      <div class="comparison-stat">
+        <div class="comp-num" style="color: var(--ascend);">434</div>
+        <div class="comp-label">Posts by Imtiaz using<br>video, carousels, stories</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROI CALCULATOR ===== -->
+<section class="calculator-section">
+  <div class="container">
+    <div class="section-label">Interactive</div>
+    <h2 class="section-title">See what you save.</h2>
+    <div class="calculator-box">
+      <div class="calc-row">
+        <div class="calc-input-group">
+          <label>Average Property Value</label>
+          <div class="slider-value" id="prop-value-display">dh2,000,000</div>
+          <input type="range" id="prop-value" min="1000000" max="4500000" step="250000" value="2000000">
+        </div>
+        <div class="calc-input-group">
+          <label>Direct Sales Per Year</label>
+          <div class="slider-value" id="sales-display">4</div>
+          <input type="range" id="sales-count" min="1" max="20" step="1" value="4">
+        </div>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result-item">
+          <div class="result-label">Agent Commissions</div>
+          <div class="result-value negative" id="result-commission">dh640,000</div>
+          <div class="result-sub">paid to agents per year</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="result-label">CDE Program Cost</div>
+          <div class="result-value positive" id="result-cde">dh144,160</div>
+          <div class="result-sub">your annual investment</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="result-label">Return on Investment</div>
+          <div class="result-value roi" id="result-roi">4.4x</div>
+          <div class="result-sub">for every dirham spent</div>
+        </div>
+      </div>
+      <div class="calc-verdict">
+        <p>By closing <span id="verdict-sales">4</span> sales direct, you save</p>
+        <div class="verdict-big" id="verdict-savings">dh495,840</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE ENGINE (JOURNEY MAP) ===== -->
+<section class="funnel-section">
+  <div class="container">
+    <div class="section-label">The Engine</div>
+    <h2 class="section-title">How a buyer goes from search<br>to site visit, with no agent.</h2>
+    <p style="color: var(--gray-dark); max-width: 600px; line-height: 1.6; margin-bottom: 8px;">Six steps. Every one controlled by you. Every lead captured, qualified, and routed to your sales team directly.</p>
+    <div class="journey-flow-label">
+      Buyer journey: click each step to expand
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="journey-map">
+
+      <!-- Step 1 -->
+      <div class="journey-node step-search">
+        <div class="journey-node-icon"><div class="num">1</div></div>
+        <div class="journey-card" data-step="1">
+          <div class="journey-card-header" onclick="toggleJourneyCard(this)">
+            <div class="journey-card-header-left">
+              <h4>Google Search Ads</h4>
+              <span class="journey-oneliner">Capture buyers actively searching for properties in your area.</span>
+            </div>
+            <div class="journey-card-toggle">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="journey-card-detail">
+            <div class="journey-detail-inner">
+              <div class="journey-detail-block purpose">
+                <h5>Purpose</h5>
+                <ul>
+                  <li>Intercept buyers at the moment of highest intent: when they're searching for property in your area on Google</li>
+                  <li>Position Golden Woods as the first result they see, before agents or competitors</li>
+                  <li>Drive qualified traffic to a page you own and control</li>
+                </ul>
+              </div>
+              <div class="journey-detail-block outcomes">
+                <h5>Expected Outcomes</h5>
+                <ul>
+                  <li>Consistent stream of high-intent buyer traffic within 2 weeks of launch</li>
+                  <li>Cost per buyer inquiry is a fraction of what you'd pay in agent commission</li>
+                  <li>You see exactly which searches bring real buyers, not just clicks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="journey-node step-land">
+        <div class="journey-node-icon"><div class="num">2</div></div>
+        <div class="journey-card" data-step="2">
+          <div class="journey-card-header" onclick="toggleJourneyCard(this)">
+            <div class="journey-card-header-left">
+              <h4>Property Landing Page</h4>
+              <span class="journey-oneliner">A dedicated page built for one thing: getting inquiries. Not your main website.</span>
+            </div>
+            <div class="journey-card-toggle">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="journey-card-detail">
+            <div class="journey-detail-inner">
+              <div class="journey-detail-block purpose">
+                <h5>Purpose</h5>
+                <ul>
+                  <li>Give the buyer a focused experience built around one goal: make contact with your team</li>
+                  <li>Separate from the main website so it can be tested and improved without touching anything else</li>
+                  <li>Present Golden Woods with the quality a buyer expects from a project at this price point</li>
+                </ul>
+              </div>
+              <div class="journey-detail-block outcomes">
+                <h5>Expected Outcomes</h5>
+                <ul>
+                  <li>Visitors who land here are 3-5x more likely to inquire vs. a generic website</li>
+                  <li>Buyers feel confident going direct because the presentation matches the project quality</li>
+                  <li>We can test and improve what works without waiting on a web developer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="journey-node step-capture">
+        <div class="journey-node-icon"><div class="num">3</div></div>
+        <div class="journey-card" data-step="3">
+          <div class="journey-card-header" onclick="toggleJourneyCard(this)">
+            <div class="journey-card-header-left">
+              <h4>Lead Capture</h4>
+              <span class="journey-oneliner">Email for brochure. WhatsApp opt-in. Call booking.</span>
+            </div>
+            <div class="journey-card-toggle">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="journey-card-detail">
+            <div class="journey-detail-inner">
+              <div class="journey-detail-block purpose">
+                <h5>Purpose</h5>
+                <ul>
+                  <li>Turn website visitors into real names with contact details and permission to follow up</li>
+                  <li>Offer immediate value (the brochure) in exchange for their information</li>
+                  <li>Multiple capture points: email form, WhatsApp button, direct call booking</li>
+                </ul>
+              </div>
+              <div class="journey-detail-block outcomes">
+                <h5>Expected Outcomes</h5>
+                <ul>
+                  <li>Every visitor gets a clear next step, matched to their preference</li>
+                  <li>WhatsApp leads connect with your sales team in minutes, not days</li>
+                  <li>You own the lead data. No agent controls who talks to your buyers.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="journey-node step-crm">
+        <div class="journey-node-icon"><div class="num">4</div></div>
+        <div class="journey-card" data-step="4">
+          <div class="journey-card-header" onclick="toggleJourneyCard(this)">
+            <div class="journey-card-header-left">
+              <h4>CRM + Auto-Routing</h4>
+              <span class="journey-oneliner">Leads enter CRM. Brochure sent. WhatsApp routed instantly.</span>
+            </div>
+            <div class="journey-card-toggle">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="journey-card-detail">
+            <div class="journey-detail-inner">
+              <div class="journey-detail-block purpose">
+                <h5>Purpose</h5>
+                <ul>
+                  <li>No lead sits in an inbox. Brochures go out instantly, WhatsApp inquiries go to the right person immediately.</li>
+                  <li>Your sales team gets a notification the moment someone asks to talk, with full context on what they looked at</li>
+                  <li>Every buyer is logged by where they came from, what they're interested in, and where they are in the process</li>
+                </ul>
+              </div>
+              <div class="journey-detail-block outcomes">
+                <h5>Expected Outcomes</h5>
+                <ul>
+                  <li>No manual data entry. Every buyer tracked from first click to site visit.</li>
+                  <li>Response time drops from hours to minutes. Buyers don't go cold.</li>
+                  <li>You see your pipeline: how many buyers at each stage, who's ready, who needs a push</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="journey-node step-nurture">
+        <div class="journey-node-icon"><div class="num">5</div></div>
+        <div class="journey-card" data-step="5">
+          <div class="journey-card-header" onclick="toggleJourneyCard(this)">
+            <div class="journey-card-header-left">
+              <h4>Email Nurture</h4>
+              <span class="journey-oneliner">Drip sequences for leads who haven't acted yet.</span>
+            </div>
+            <div class="journey-card-toggle">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="journey-card-detail">
+            <div class="journey-detail-inner">
+              <div class="journey-detail-block purpose">
+                <h5>Purpose</h5>
+                <ul>
+                  <li>Stay top of mind with buyers who are interested but not ready to act today</li>
+                  <li>Share construction updates, inventory changes, project milestones, and social proof</li>
+                  <li>Move leads from "interested" to "ready to visit" without manual follow-up</li>
+                </ul>
+              </div>
+              <div class="journey-detail-block outcomes">
+                <h5>Expected Outcomes</h5>
+                <ul>
+                  <li>Buyers who weren't ready today come back in weeks or months, already warm</li>
+                  <li>Your sales team only talks to people who've already seen the project, read the materials, and chosen to reach out</li>
+                  <li>Every touchpoint reinforces Golden Woods as a serious, premium project</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="journey-node step-close">
+        <div class="journey-node-icon"><div class="num">6</div></div>
+        <div class="journey-card" data-step="6">
+          <div class="journey-card-header" onclick="toggleJourneyCard(this)">
+            <div class="journey-card-header-left">
+              <h4>Direct Sale</h4>
+              <span class="journey-oneliner">Qualified buyer books a site visit or connects via WhatsApp.</span>
+            </div>
+            <div class="journey-card-toggle">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="journey-card-detail">
+            <div class="journey-detail-inner">
+              <div class="journey-detail-block purpose">
+                <h5>Purpose</h5>
+                <ul>
+                  <li>This is the point: a buyer who's informed, confident, and talking to your team directly</li>
+                  <li>No agent in the middle. No 5-8% off the top. The project sold itself.</li>
+                </ul>
+              </div>
+              <div class="journey-detail-block outcomes">
+                <h5>Expected Outcomes</h5>
+                <ul>
+                  <li>Each direct sale keeps dh80,000-360,000 in your business instead of an agent's pocket</li>
+                  <li>Buyers arrive already trusting the project. Shorter sales cycle, fewer tire-kickers.</li>
+                  <li>You built it. You should keep the margin.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHASED PLAN ===== -->
+<section class="plan-section">
+  <div class="container">
+    <div class="section-label">Investment</div>
+    <h2 class="section-title">The plan, phased for impact.</h2>
+
+    <!-- Phase 1 -->
+    <div class="phase-block phase-1">
+      <div class="phase-header">
+        <span class="phase-tag">Phase 1</span>
+        <h3>Show Impact</h3>
+      </div>
+      <p class="phase-desc">Build the direct-to-buyer engine. Everything needed to capture, nurture, and convert without an agent.</p>
+
+      <h4 style="font-size: 14px; color: var(--gray-dark); margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase;">One-Time Setup</h4>
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>What You Get</th><th>Investment (AED)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Landing Page Funnel</td>
+            <td class="what-col">Property-specific page with brochure download, WhatsApp opt-in, call booking</td>
+            <td>dh5,505</td>
+          </tr>
+          <tr>
+            <td>CRM + Email Automation</td>
+            <td class="what-col">Lead capture, tagging, brochure auto-delivery, nurture sequences, WhatsApp routing</td>
+            <td>dh7,968</td>
+          </tr>
+          <tr>
+            <td>Offline Conversion Tracking</td>
+            <td class="what-col">Track which ad clicks become qualified leads and buyers. Optimize toward revenue.</td>
+            <td>dh4,195</td>
+          </tr>
+          <tr class="total-row">
+            <td>Setup Total</td>
+            <td></td>
+            <td>dh17,668</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: 14px; color: var(--gray-dark); margin: 40px 0 16px; letter-spacing: 1px; text-transform: uppercase;">Monthly Retainer</h4>
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>What You Get</th><th>Monthly (AED)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Search Ads</td>
+            <td class="what-col">Campaign management, keyword optimization, bid strategy, reporting</td>
+            <td>dh5,505</td>
+          </tr>
+          <tr>
+            <td>Email Nurture Sequences</td>
+            <td class="what-col">Drip campaigns that move leads from inquiry to site visit</td>
+            <td>dh2,518</td>
+          </tr>
+          <tr>
+            <td>Sales Materials</td>
+            <td class="what-col">Brochures, fact sheets, inventory sheets, construction progress reports</td>
+            <td>dh2,518</td>
+          </tr>
+          <tr class="total-row">
+            <td>Monthly Total</td>
+            <td></td>
+            <td>dh10,541</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="phase-note">First month all-in: dh28,209. Then dh10,541/month ongoing.</p>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block phase-2">
+      <div class="phase-header">
+        <span class="phase-tag">Phase 2</span>
+        <h3>Full Brand + Demand Engine</h3>
+      </div>
+      <p class="phase-desc">Once Phase 1 proves ROI, layer on brand presence, organic social, and a full creative engine to compound results.</p>
+
+      <h4 style="font-size: 14px; color: var(--gray-dark); margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase;">One-Time</h4>
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>What You Get</th><th>Investment (AED)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full Brand Redesign</td>
+            <td class="what-col">Discovery, visual identity, guidelines, template system, asset creation</td>
+            <td>dh39,220</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: 14px; color: var(--gray-dark); margin: 40px 0 16px; letter-spacing: 1px; text-transform: uppercase;">Monthly Add-Ons</h4>
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>What You Get</th><th>Monthly (AED)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Organic Social (LinkedIn + Meta)</td>
+            <td class="what-col">Strategy, content calendar, captions, scheduling, community management</td>
+            <td>dh5,505 - dh7,340</td>
+          </tr>
+          <tr>
+            <td>Creative Retainer</td>
+            <td class="what-col">25-35 assets/month: posts, carousels, reels, sales materials, ad hoc</td>
+            <td>dh9,175 - dh11,010</td>
+          </tr>
+          <tr>
+            <td>Meta Paid Ads</td>
+            <td class="what-col">Campaign management, targeting, retargeting, creative testing</td>
+            <td>dh9,175</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="phase-note">Phase 2 fully loaded: dh34,396 - dh38,066/month (inclusive of Phase 1 retainer).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BREAK EVEN ===== -->
+<section class="breakeven-section">
+  <div class="container">
+    <div class="section-label">The Math</div>
+    <h2 class="section-title">How fast this pays for itself.</h2>
+    <p style="color: var(--gray-dark); max-width: 550px; line-height: 1.6;">Your first-year cost for Phase 1: dh144,160 (setup + 12 months). Here's what happens when you close even a few sales direct instead of through agents. All math uses your current 8% rate.</p>
+
+    <div class="breakeven-bars">
+      <div class="breakeven-bar-row">
+        <div class="bar-label">1 sale at dh2M</div>
+        <div class="bar-track">
+          <div class="bar-fill commission" data-width="44%" style="width:0">dh160,000 saved</div>
+        </div>
+        <div class="bar-savings">+dh15,840</div>
+      </div>
+      <div class="breakeven-bar-row">
+        <div class="bar-label">2 sales at dh2M</div>
+        <div class="bar-track">
+          <div class="bar-fill commission" data-width="62%" style="width:0">dh320,000 saved</div>
+        </div>
+        <div class="bar-savings">+dh175,840</div>
+      </div>
+      <div class="breakeven-bar-row">
+        <div class="bar-label">5 sales at dh2M</div>
+        <div class="bar-track">
+          <div class="bar-fill commission" data-width="85%" style="width:0">dh800,000 saved</div>
+        </div>
+        <div class="bar-savings">+dh655,840</div>
+      </div>
+      <div class="breakeven-bar-row">
+        <div class="bar-label">1 sale at dh4.5M</div>
+        <div class="bar-track">
+          <div class="bar-fill commission" data-width="75%" style="width:0">dh360,000 saved</div>
+        </div>
+        <div class="bar-savings">+dh215,840</div>
+      </div>
+      <div class="breakeven-bar-row">
+        <div class="bar-label" style="color: var(--evolve);">CDE annual cost</div>
+        <div class="bar-track">
+          <div class="bar-fill cde-cost" data-width="37%" style="width:0">dh144,160</div>
+        </div>
+        <div class="bar-savings" style="color: var(--evolve);">investment</div>
+      </div>
+    </div>
+
+    <div class="breakeven-summary">
+      <div class="be-stat">
+        <div class="be-num" style="color: var(--ascend);">2</div>
+        <div class="be-label">Direct sales at dh1M<br>to break even for the year</div>
+      </div>
+      <div class="be-stat">
+        <div class="be-num" style="color: var(--lavender);">5.5:1</div>
+        <div class="be-label">Return on 5 direct sales<br>at dh2M average</div>
+      </div>
+      <div class="be-stat">
+        <div class="be-num" style="color: var(--expansion);">dh360K</div>
+        <div class="be-label">Saved on a single<br>dh4.5M direct sale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2>You're not paying for marketing.<br>You're paying to <span style="color: var(--ascend);">stop losing money</span>.</h2>
+    <p>One direct sale covers the cost. Everything after is pure upside.</p>
+    <a href="mailto:" class="cta-button">Let's Build This</a>
+    <div class="footer-note">
+      <span style="display:inline-flex; align-items:center; gap:8px;">
+        <span style="width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,var(--blue),var(--lavender));display:inline-flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:8px;font-weight:800;color:#fff;">CDE</span>
+        Prepared by Core Digital Expansion
+      </span>
+    </div>
+  </div>
+</section>
+
+<script>
+// ===== WEBGL LIQUID GRADIENT =====
+const canvas = document.getElementById('gradient-canvas');
+const gl = canvas.getContext('webgl');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  if (gl) gl.viewport(0, 0, canvas.width, canvas.height);
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+if (gl) {
+  const vsSource = `
+    attribute vec2 a_position;
+    void main() { gl_Position = vec4(a_position, 0.0, 1.0); }
+  `;
+
+  const fsSource = `
+    precision mediump float;
+    uniform float u_time;
+    uniform vec2 u_resolution;
+
+    vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+
+    float snoise(vec2 v) {
+      const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                         -0.577350269189626, 0.024390243902439);
+      vec2 i  = floor(v + dot(v, C.yy));
+      vec2 x0 = v - i + dot(i, C.xx);
+      vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+      vec4 x12 = x0.xyxy + C.xxzz;
+      x12.xy -= i1;
+      i = mod(i, 289.0);
+      vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+      vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+      m = m*m; m = m*m;
+      vec3 x = 2.0 * fract(p * C.www) - 1.0;
+      vec3 h = abs(x) - 0.5;
+      vec3 ox = floor(x + 0.5);
+      vec3 a0 = x - ox;
+      m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+      vec3 g;
+      g.x = a0.x * x0.x + h.x * x0.y;
+      g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+      return 130.0 * dot(m, g);
+    }
+
+    float fbm(vec2 p) {
+      float v = 0.0, a = 0.5;
+      for (int i = 0; i < 5; i++) {
+        v += a * snoise(p);
+        p = p * 2.0 + vec2(1.7, 9.2);
+        a *= 0.5;
+      }
+      return v;
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_resolution;
+      float t = u_time * 0.15;
+
+      float n1 = fbm(uv * 2.0 + vec2(t, t * 0.7));
+      float n2 = fbm(uv * 2.5 + vec2(-t * 0.8, t * 0.6));
+      float n3 = fbm(uv * 1.8 + vec2(t * 0.5, -t * 0.9));
+
+      vec3 evolve    = vec3(0.690, 0.929, 0.988);
+      vec3 expansion = vec3(0.945, 0.690, 0.549);
+      vec3 ascend    = vec3(0.580, 0.843, 0.761);
+      vec3 lavender  = vec3(0.702, 0.702, 0.973);
+      vec3 deepBlue  = vec3(0.153, 0.365, 0.780);
+
+      vec3 color = mix(deepBlue, evolve, smoothstep(-0.5, 0.5, n1));
+      color = mix(color, lavender, smoothstep(-0.3, 0.6, n2) * 0.5);
+      color = mix(color, expansion, smoothstep(0.0, 0.8, n3) * 0.3);
+      color = mix(color, ascend, smoothstep(-0.2, 0.7, n1 + n2) * 0.25);
+
+      gl_FragColor = vec4(color, 0.12);
+    }
+  `;
+
+  function createShader(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    return shader;
+  }
+
+  const vs = createShader(gl.VERTEX_SHADER, vsSource);
+  const fs = createShader(gl.FRAGMENT_SHADER, fsSource);
+  const program = gl.createProgram();
+  gl.attachShader(program, vs);
+  gl.attachShader(program, fs);
+  gl.linkProgram(program);
+  gl.useProgram(program);
+
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+
+  const aPos = gl.getAttribLocation(program, 'a_position');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  const uTime = gl.getUniformLocation(program, 'u_time');
+  const uRes = gl.getUniformLocation(program, 'u_resolution');
+
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+  function render(time) {
+    gl.uniform1f(uTime, time * 0.001);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+}
+
+// ===== CALCULATOR =====
+const propSlider = document.getElementById('prop-value');
+const salesSlider = document.getElementById('sales-count');
+const propDisplay = document.getElementById('prop-value-display');
+const salesDisplay = document.getElementById('sales-display');
+
+const annualCDE = 17668 + (10541 * 12); // setup + 12 months retainer
+
+function formatAED(n) {
+  return 'dh' + Math.round(n).toLocaleString();
+}
+
+function updateCalc() {
+  const propVal = parseInt(propSlider.value);
+  const salesCount = parseInt(salesSlider.value);
+
+  propDisplay.textContent = formatAED(propVal);
+  salesDisplay.textContent = salesCount;
+
+  const commission = propVal * 0.08 * salesCount;
+  const savings = commission - annualCDE;
+  const roi = commission / annualCDE;
+
+  document.getElementById('result-commission').textContent = formatAED(commission);
+  document.getElementById('result-cde').textContent = formatAED(annualCDE);
+  document.getElementById('result-roi').textContent = roi.toFixed(1) + 'x';
+  document.getElementById('verdict-sales').textContent = salesCount;
+  document.getElementById('verdict-savings').textContent = formatAED(savings);
+
+  const verdict = document.querySelector('.calc-verdict');
+  if (savings > 0) {
+    verdict.style.borderColor = 'rgba(148,215,194,0.15)';
+    verdict.style.background = 'rgba(148,215,194,0.05)';
+    verdict.querySelector('p').style.color = 'var(--ascend)';
+    verdict.querySelector('.verdict-big').style.color = 'var(--ascend)';
+  } else {
+    verdict.style.borderColor = 'rgba(241,176,140,0.15)';
+    verdict.style.background = 'rgba(241,176,140,0.05)';
+    verdict.querySelector('p').style.color = 'var(--expansion)';
+    verdict.querySelector('.verdict-big').style.color = 'var(--expansion)';
+  }
+}
+
+propSlider.addEventListener('input', updateCalc);
+salesSlider.addEventListener('input', updateCalc);
+updateCalc();
+
+// ===== JOURNEY CARD TOGGLE =====
+function toggleJourneyCard(header) {
+  const card = header.closest('.journey-card');
+  card.classList.toggle('expanded');
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // Animate bars
+      if (entry.target.classList.contains('breakeven-section')) {
+        document.querySelectorAll('.bar-fill').forEach((bar, i) => {
+          setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+          }, i * 150);
+        });
+      }
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.journey-node, .phase-block, .breakeven-section, .comparison-card, .comparison-stat').forEach(el => {
+  observer.observe(el);
+});
+
+// Stagger journey nodes
+const journeyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nodes = document.querySelectorAll('.journey-node');
+      nodes.forEach((node, i) => {
+        setTimeout(() => node.classList.add('visible'), i * 150);
+      });
+      journeyObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+
+journeyObserver.observe(document.querySelector('.journey-map'));
+</script>
+
+</body>
+</html>
