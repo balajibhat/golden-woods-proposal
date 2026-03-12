@@ -40,8 +40,8 @@
 
 .team-duo-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   margin-top: 48px;
 }
 
@@ -49,7 +49,7 @@
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
-  padding: 40px;
+  padding: 32px;
   transition: all 0.3s ease;
   perspective: 1000px;
   opacity: 0;
@@ -78,16 +78,16 @@
 
 .team-card-name {
   font-family: 'Blauer Nue', sans-serif;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: var(--white);
-  margin: 12px 0 16px;
+  margin: 10px 0 14px;
   font-weight: 600;
 }
 
 .team-card-bio {
   font-family: 'Switzer', sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.65;
   color: rgba(255,255,255,0.65);
   margin-bottom: 24px;
 }
@@ -1763,15 +1763,15 @@ input[type="range"]::-moz-range-thumb {
 
     <div class="team-duo-grid">
       <div class="team-card d3">
-        <div class="team-card-role">Partner & VP, Client Services</div>
+        <div class="team-card-role">Partner, VP Client Services & Creative Director</div>
         <h3 class="team-card-name">Balaji.</h3>
-        <p class="team-card-bio">Nearly fifteen years of expertise in multi-channel media execution, strategic growth marketing, and digital transformation. Specializes in driving measurable performance outcomes by blending data-driven insights, creative strategy, and scalable execution. Has led growth initiatives for Meta, LinkedIn, Brandless, Rocket Lawyer, Dynatrace, Vistage Worldwide, eHealth, and OpenDoor.</p>
+        <p class="team-card-bio">Nearly fifteen years of expertise in multi-channel media execution, strategic growth marketing, and digital transformation. Leads both the creative direction and performance strategy, blending data-driven insights with compelling visual storytelling. Has led growth initiatives for Meta, LinkedIn, Brandless, Rocket Lawyer, Dynatrace, Vistage Worldwide, eHealth, and OpenDoor.</p>
         <ul class="team-card-skills">
+          <li class="team-card-skill">Creative Direction</li>
           <li class="team-card-skill">Multi-Channel Media</li>
           <li class="team-card-skill">Growth Strategy</li>
           <li class="team-card-skill">Digital Transformation</li>
           <li class="team-card-skill">Data-Driven Performance</li>
-          <li class="team-card-skill">Scalable Execution</li>
         </ul>
         <div class="team-card-divider"></div>
         <p class="team-card-quote">"The breadth of exposure is the advantage. We've seen what works at every scale."</p>
@@ -1789,6 +1789,20 @@ input[type="range"]::-moz-range-thumb {
         </ul>
         <div class="team-card-divider"></div>
         <p class="team-card-quote">"Strategy without execution is a slide deck. We deliver both."</p>
+      </div>
+      <div class="team-card d5">
+        <div class="team-card-role">Content & Creative Lead</div>
+        <h3 class="team-card-name">Aiyana.</h3>
+        <p class="team-card-bio">Over a decade of experience across the GCC, blending strategy, creativity, and cultural understanding to build brands that resonate. Has worked on both the client and agency side, bringing a nuanced perspective to modern marketing that balances bold ideas with clear commercial intent. Experience spans fashion, F&B, FMCG, beauty, and lifestyle with Pepsi, Sunsilk, Lenskart, Tabby, and the Unilever ecosystem.</p>
+        <ul class="team-card-skills">
+          <li class="team-card-skill">Social & Content</li>
+          <li class="team-card-skill">Influencer Campaigns</li>
+          <li class="team-card-skill">Production</li>
+          <li class="team-card-skill">GCC Markets</li>
+          <li class="team-card-skill">Brand Strategy</li>
+        </ul>
+        <div class="team-card-divider"></div>
+        <p class="team-card-quote">"Partnership over process. Work closely with brands, not around them."</p>
       </div>
     </div>
 
