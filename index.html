@@ -309,6 +309,42 @@ section {
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-family: "Switzer", sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--blue);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: rgba(255,255,255,0.9);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
 .cde-logo {
   display: flex;
   align-items: center;
@@ -518,6 +554,7 @@ section {
   .cde-nav { padding: 16px 20px; }
   .cde-logo-text { display: none; }
   .cde-nav-tag { display: none; }
+  .nav-links { display: none; }
 }
 
 /* ===== CONTENT COMPARISON ===== */
@@ -1299,32 +1336,11 @@ input[type="range"]::-moz-range-thumb {
   color: var(--gray-dark);
   font-size: 18px;
   max-width: 500px;
-  margin: 0 auto 40px;
+  margin: 0 auto 24px;
   line-height: 1.6;
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 16px 40px;
-  background: var(--blue);
-  color: var(--white);
-  border-radius: 100px;
-  font-family: 'Blauer Nue', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 20px rgba(39,86,199,0.25);
-}
 
-.cta-button:hover {
-  background: #3366dd;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(39,86,199,0.4);
-}
 
 .footer-note {
   margin-top: 80px;
@@ -1512,6 +1528,15 @@ input[type="range"]::-moz-range-thumb {
     <div class="cde-logo-mark">CDE</div>
     <div class="cde-logo-text">Core Digital Expansion</div>
   </div>
+  <div class="nav-links">
+    <a href="#problem">Problem</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#engine">Engine</a>
+    <a href="#team">Team</a>
+    <a href="#plan">Plan</a>
+    <a href="#calculator">ROI</a>
+    <a href="#math">Break-Even</a>
+  </div>
   <div class="nav-right">
     <div class="cde-nav-tag">Growth Partnership Proposal</div>
     <div class="nav-divider"></div>
@@ -1534,7 +1559,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== THE PROBLEM ===== -->
-<section class="problem-section">
+<section class="problem-section" id="problem">
   <div class="container">
     <div class="section-label">The Problem</div>
     <h2 class="section-title">Your brand is a liability,<br>not an asset.</h2>
@@ -1563,7 +1588,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== CONTENT COMPARISON ===== -->
-<section class="comparison-section">
+<section class="comparison-section" id="evidence">
   <div class="container">
     <div class="section-label">The Evidence</div>
     <h2 class="section-title">This is what your competition<br>looks like online.</h2>
@@ -1676,7 +1701,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== THE ENGINE (JOURNEY MAP) ===== -->
-<section class="funnel-section">
+<section class="funnel-section" id="engine">
   <div class="container">
     <div class="section-label">The Engine</div>
     <h2 class="section-title">How a buyer goes from search<br>to site visit, with no agent.</h2>
@@ -1908,7 +1933,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== YOUR GROWTH TEAM ===== -->
-<section class="team-section">
+<section class="team-section" id="team">
   <div class="container">
     <div class="section-label">Your Team</div>
     <h2 class="section-title">Who builds and runs this for you.</h2>
@@ -1975,7 +2000,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== PHASED PLAN ===== -->
-<section class="plan-section">
+<section class="plan-section" id="plan">
   <div class="container">
     <div class="section-label">Investment</div>
     <h2 class="section-title">The plan, phased for impact.</h2>
@@ -2193,7 +2218,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== ROI CALCULATOR ===== -->
-<section class="calculator-section">
+<section class="calculator-section" id="calculator">
   <div class="container">
     <div class="section-label">Interactive</div>
     <h2 class="section-title">See what you save.</h2>
@@ -2236,7 +2261,7 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== BREAK EVEN ===== -->
-<section class="breakeven-section">
+<section class="breakeven-section" id="math">
   <div class="container">
     <div class="section-label">The Math</div>
     <h2 class="section-title">How fast this pays for itself.</h2>
@@ -2298,11 +2323,10 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 <!-- ===== CTA ===== -->
-<section class="cta-section">
+<section class="cta-section" id="closing">
   <div class="container">
     <h2>You're not paying for marketing.<br>You're paying to <span style="color: var(--ascend);">stop losing money</span>.</h2>
     <p>One direct sale covers the cost. Everything after is pure upside.</p>
-    <a href="mailto:" class="cta-button">Let's Build This</a>
     <div class="footer-note">
       <span style="display:inline-flex; align-items:center; gap:8px;">
         <span style="width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,var(--blue),var(--lavender));display:inline-flex;align-items:center;justify-content:center;font-family:'Blauer Nue',sans-serif;font-size:8px;font-weight:800;color:#fff;">CDE</span>
