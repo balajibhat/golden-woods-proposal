@@ -1335,6 +1335,152 @@ input[type="range"]::-moz-range-thumb {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== ROADMAP TIMELINE ===== */
+.roadmap {
+  margin-top: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roadmap.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.roadmap-title {
+  font-family: 'Blauer Nue', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 32px;
+}
+
+.roadmap-header {
+  display: grid;
+  grid-template-columns: 180px repeat(12, 1fr);
+  gap: 0;
+  margin-bottom: 4px;
+}
+
+.roadmap-header span {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.roadmap-header span:first-child {
+  text-align: left;
+}
+
+.roadmap-row {
+  display: grid;
+  grid-template-columns: 180px repeat(12, 1fr);
+  gap: 0;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.roadmap-label {
+  font-family: 'Switzer', sans-serif;
+  font-size: 13px;
+  color: var(--white);
+  font-weight: 500;
+  padding-right: 16px;
+}
+
+.roadmap-bar-area {
+  display: contents;
+}
+
+.roadmap-bar {
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Switzer', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.roadmap-bar.dev {
+  background: rgba(39,86,199,0.25);
+  border: 1px solid rgba(39,86,199,0.35);
+}
+
+.roadmap-bar.launch {
+  background: rgba(148,215,194,0.2);
+  border: 1px solid rgba(148,215,194,0.3);
+}
+
+.roadmap-bar.ongoing {
+  background: rgba(179,179,248,0.15);
+  border: 1px solid rgba(179,179,248,0.25);
+}
+
+.roadmap-bar.brand {
+  background: rgba(241,176,140,0.2);
+  border: 1px solid rgba(241,176,140,0.3);
+}
+
+.roadmap-phase-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 12px;
+}
+
+.roadmap-phase-divider span {
+  font-family: 'Blauer Nue', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.roadmap-phase-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
+
+.roadmap-legend {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.roadmap-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--gray-dark);
+  letter-spacing: 0.5px;
+}
+
+.roadmap-legend-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.dot.dev { background: rgba(39,86,199,0.5); }
+.dot.launch { background: rgba(148,215,194,0.4); }
+.dot.ongoing { background: rgba(179,179,248,0.35); }
+.dot.brand { background: rgba(241,176,140,0.4); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   section { padding: 60px 24px; }
@@ -1346,6 +1492,10 @@ input[type="range"]::-moz-range-thumb {
   .breakeven-summary { grid-template-columns: 1fr; }
   .pricing-table { font-size: 13px; }
   .pricing-table td, .pricing-table th { padding: 12px 8px; }
+  .roadmap-header, .roadmap-row { grid-template-columns: 120px repeat(12, 1fr); }
+  .roadmap-label { font-size: 11px; }
+  .roadmap-bar { font-size: 9px; height: 26px; }
+  .roadmap-legend { flex-wrap: wrap; gap: 12px; }
 }
 
 </style>
@@ -1847,22 +1997,22 @@ input[type="range"]::-moz-range-thumb {
           <tr>
             <td>Landing Page Funnel</td>
             <td class="what-col">Property-specific page with brochure download, WhatsApp opt-in, call booking</td>
-            <td>AED 5,505</td>
+            <td>AED 5,500</td>
           </tr>
           <tr>
             <td>CRM + Email Automation</td>
             <td class="what-col">Lead capture, tagging, brochure auto-delivery, nurture sequences, WhatsApp routing</td>
-            <td>AED 7,968</td>
+            <td>AED 8,000</td>
           </tr>
           <tr>
             <td>Offline Conversion Tracking</td>
             <td class="what-col">Track which ad clicks become qualified leads and buyers. Optimize toward revenue.</td>
-            <td>AED 4,195</td>
+            <td>AED 4,200</td>
           </tr>
           <tr class="total-row">
             <td>Setup Total</td>
             <td></td>
-            <td>AED 17,668</td>
+            <td>AED 17,700</td>
           </tr>
         </tbody>
       </table>
@@ -1876,26 +2026,26 @@ input[type="range"]::-moz-range-thumb {
           <tr>
             <td>Google Search Ads</td>
             <td class="what-col">Campaign management, keyword optimization, bid strategy, reporting</td>
-            <td>AED 5,505</td>
+            <td>AED 5,500</td>
           </tr>
           <tr>
             <td>Email Nurture Sequences</td>
             <td class="what-col">Drip campaigns that move leads from inquiry to site visit</td>
-            <td>AED 2,518</td>
+            <td>AED 2,500</td>
           </tr>
           <tr>
             <td>Sales Materials</td>
             <td class="what-col">Brochures, fact sheets, inventory sheets, construction progress reports</td>
-            <td>AED 2,518</td>
+            <td>AED 2,500</td>
           </tr>
           <tr class="total-row">
             <td>Monthly Total</td>
             <td></td>
-            <td>AED 10,541</td>
+            <td>AED 10,500</td>
           </tr>
         </tbody>
       </table>
-      <p class="phase-note">First month all-in: AED 28,209. Then AED 10,541/month ongoing.</p>
+      <p class="phase-note">First month all-in: AED 28,200. Then AED 10,500/month ongoing.</p>
     </div>
 
     <!-- Phase 2 -->
@@ -1915,7 +2065,7 @@ input[type="range"]::-moz-range-thumb {
           <tr>
             <td>Full Brand Redesign</td>
             <td class="what-col">Discovery, visual identity, guidelines, template system, asset creation</td>
-            <td>AED 39,220</td>
+            <td>AED 39,000</td>
           </tr>
         </tbody>
       </table>
@@ -1929,21 +2079,105 @@ input[type="range"]::-moz-range-thumb {
           <tr>
             <td>Organic Social (LinkedIn + Meta)</td>
             <td class="what-col">Strategy, content calendar, captions, scheduling, community management</td>
-            <td>AED 5,505 - AED 7,340</td>
+            <td>AED 5,500 - AED 7,500</td>
           </tr>
           <tr>
             <td>Creative Retainer</td>
             <td class="what-col">25-35 assets/month: posts, carousels, reels, sales materials, ad hoc</td>
-            <td>AED 9,175 - AED 11,010</td>
+            <td>AED 9,000 - AED 11,000</td>
           </tr>
           <tr>
             <td>Meta Paid Ads</td>
             <td class="what-col">Campaign management, targeting, retargeting, creative testing</td>
-            <td>AED 9,175</td>
+            <td>AED 9,000</td>
           </tr>
         </tbody>
       </table>
-      <p class="phase-note">Phase 2 fully loaded: AED 34,396 - AED 38,066/month (inclusive of Phase 1 retainer).</p>
+      <p class="phase-note">Phase 2 fully loaded: AED 34,000 - AED 38,000/month (inclusive of Phase 1 retainer).</p>
+    </div>
+
+    <!-- Roadmap Timeline -->
+    <div class="roadmap">
+      <div class="roadmap-title">Deployment Roadmap</div>
+
+      <div class="roadmap-header">
+        <span></span>
+        <span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span>
+        <span>Wk 5</span><span>Wk 6</span><span>Wk 7</span><span>Wk 8</span>
+        <span>Wk 9</span><span>Wk 10</span><span>Wk 11</span><span>Wk 12</span>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="roadmap-phase-divider">
+        <span style="color: var(--evolve);">Phase 1</span>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Landing Page</div>
+        <div class="roadmap-bar dev" style="grid-column: 2 / 6;">Build + iterate</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">CRM + Automation</div>
+        <div class="roadmap-bar dev" style="grid-column: 2 / 5;">Setup + integrations</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Conversion Tracking</div>
+        <div class="roadmap-bar dev" style="grid-column: 4 / 6;">Configure + test</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Google Search Ads</div>
+        <div class="roadmap-bar launch" style="grid-column: 5 / 6;">Launch</div>
+        <div class="roadmap-bar ongoing" style="grid-column: 6 / 14;">Optimize + manage</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Email Sequences</div>
+        <div class="roadmap-bar dev" style="grid-column: 4 / 6;">Write + build</div>
+        <div class="roadmap-bar ongoing" style="grid-column: 6 / 14;">Active + refine</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Sales Materials</div>
+        <div class="roadmap-bar dev" style="grid-column: 3 / 5;">Create</div>
+        <div class="roadmap-bar ongoing" style="grid-column: 5 / 14;">Update as needed</div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="roadmap-phase-divider">
+        <span style="color: var(--ascend);">Phase 2 (after ROI proven)</span>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Brand Redesign</div>
+        <div class="roadmap-bar brand" style="grid-column: 2 / 9;">Discovery, identity, guidelines, assets</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Organic Social</div>
+        <div class="roadmap-bar brand" style="grid-column: 7 / 9;">Strategy</div>
+        <div class="roadmap-bar ongoing" style="grid-column: 9 / 14;">Content + publish</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Creative Retainer</div>
+        <div class="roadmap-bar ongoing" style="grid-column: 9 / 14;">25-35 assets/mo</div>
+      </div>
+
+      <div class="roadmap-row">
+        <div class="roadmap-label">Meta Paid Ads</div>
+        <div class="roadmap-bar launch" style="grid-column: 9 / 10;">Launch</div>
+        <div class="roadmap-bar ongoing" style="grid-column: 10 / 14;">Optimize + scale</div>
+      </div>
+
+      <div class="roadmap-legend">
+        <div class="roadmap-legend-item"><div class="dot dev"></div> Build / Dev (higher variability)</div>
+        <div class="roadmap-legend-item"><div class="dot launch"></div> Launch</div>
+        <div class="roadmap-legend-item"><div class="dot ongoing"></div> Ongoing / Optimize</div>
+        <div class="roadmap-legend-item"><div class="dot brand"></div> Brand / Creative</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1974,7 +2208,7 @@ input[type="range"]::-moz-range-thumb {
         </div>
         <div class="calc-result-item">
           <div class="result-label">CDE Program Cost</div>
-          <div class="result-value positive" id="result-cde">AED 144,160</div>
+          <div class="result-value positive" id="result-cde">AED 143,700</div>
           <div class="result-sub">your annual investment</div>
         </div>
         <div class="calc-result-item">
@@ -1985,7 +2219,7 @@ input[type="range"]::-moz-range-thumb {
       </div>
       <div class="calc-verdict">
         <p>By closing <span id="verdict-sales">4</span> sales direct, you save</p>
-        <div class="verdict-big" id="verdict-savings">AED 495,840</div>
+        <div class="verdict-big" id="verdict-savings">AED 496,300</div>
       </div>
     </div>
   </div>
@@ -1996,7 +2230,7 @@ input[type="range"]::-moz-range-thumb {
   <div class="container">
     <div class="section-label">The Math</div>
     <h2 class="section-title">How fast this pays for itself.</h2>
-    <p style="color: var(--gray-dark); max-width: 550px; line-height: 1.6;">Your first-year cost for Phase 1: AED 144,160 (setup + 12 months). Here's what happens when you close even a few sales direct instead of through agents. All math uses your current 8% rate.</p>
+    <p style="color: var(--gray-dark); max-width: 550px; line-height: 1.6;">Your first-year cost for Phase 1: AED 143,700 (setup + 12 months). Here's what happens when you close even a few sales direct instead of through agents. All math uses your current 8% rate.</p>
 
     <div class="breakeven-bars">
       <div class="breakeven-bar-row">
@@ -2004,33 +2238,33 @@ input[type="range"]::-moz-range-thumb {
         <div class="bar-track">
           <div class="bar-fill commission" data-width="44%" style="width:0">AED 160,000 saved</div>
         </div>
-        <div class="bar-savings">+AED 15,840</div>
+        <div class="bar-savings">+AED 16,300</div>
       </div>
       <div class="breakeven-bar-row">
         <div class="bar-label">2 sales at AED 2M</div>
         <div class="bar-track">
           <div class="bar-fill commission" data-width="62%" style="width:0">AED 320,000 saved</div>
         </div>
-        <div class="bar-savings">+AED 175,840</div>
+        <div class="bar-savings">+AED 176,300</div>
       </div>
       <div class="breakeven-bar-row">
         <div class="bar-label">5 sales at AED 2M</div>
         <div class="bar-track">
           <div class="bar-fill commission" data-width="85%" style="width:0">AED 800,000 saved</div>
         </div>
-        <div class="bar-savings">+AED 655,840</div>
+        <div class="bar-savings">+AED 656,300</div>
       </div>
       <div class="breakeven-bar-row">
         <div class="bar-label">1 sale at AED 4.5M</div>
         <div class="bar-track">
           <div class="bar-fill commission" data-width="75%" style="width:0">AED 360,000 saved</div>
         </div>
-        <div class="bar-savings">+AED 215,840</div>
+        <div class="bar-savings">+AED 216,300</div>
       </div>
       <div class="breakeven-bar-row">
         <div class="bar-label" style="color: var(--evolve);">CDE annual cost</div>
         <div class="bar-track">
-          <div class="bar-fill cde-cost" data-width="37%" style="width:0">AED 144,160</div>
+          <div class="bar-fill cde-cost" data-width="37%" style="width:0">AED 143,700</div>
         </div>
         <div class="bar-savings" style="color: var(--evolve);">investment</div>
       </div>
@@ -2194,7 +2428,7 @@ const salesSlider = document.getElementById('sales-count');
 const propDisplay = document.getElementById('prop-value-display');
 const salesDisplay = document.getElementById('sales-display');
 
-const annualCDE = 17668 + (10541 * 12); // setup + 12 months retainer
+const annualCDE = 17700 + (10500 * 12); // setup + 12 months retainer
 
 function formatAED(n) {
   return 'AED ' + Math.round(n).toLocaleString();
@@ -2259,7 +2493,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.problem-part, .team-card, .journey-node, .phase-block, .breakeven-section, .comparison-card, .comparison-stat').forEach(el => {
+document.querySelectorAll('.roadmap, .problem-part, .team-card, .journey-node, .phase-block, .breakeven-section, .comparison-card, .comparison-stat').forEach(el => {
   observer.observe(el);
 });
 
